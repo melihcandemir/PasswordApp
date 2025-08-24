@@ -57,36 +57,25 @@
         <div
           class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 md:p-8 mb-6 transition-all duration-300"
         >
-          <label
-            for="inputText"
-            class="block text-lg font-semibold text-gray-700 dark:text-gray-200 mb-3"
-          >
-            Metin Girin:
-          </label>
+          <div class="flex justify-between items-center mb-3">
+            <label
+              class="block text-lg font-semibold text-gray-700 dark:text-gray-200"
+            >
+              Metin Girin:
+            </label>
+            <button
+              id="clearInputBtn"
+              class="bg-slate-300 md:hover:bg-slate-400 dark:bg-slate-600 dark:md:hover:bg-slate-700 text-gray-700 dark:text-white font-bold text-xs px-2 py-1 rounded-lg transition-colors duration-200 flex items-center"
+            >
+              Temizle
+            </button>
+          </div>
           <textarea
             id="inputText"
             placeholder="Şifrelemek veya çözmek istediğiniz metni buraya yazın..."
             class="w-full h-32 p-4 border-2 border-gray-200 dark:border-gray-600 rounded-xl resize-none focus:border-blue-500 dark:focus:border-blue-400 focus:outline-none transition-colors duration-200 bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400"
           ></textarea>
         </div>
-
-        <!-- Şifre Alanı
-        <div
-          class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 md:p-8 mb-6 transition-all duration-300"
-        >
-          <label
-            for="passwordInput"
-            class="block text-lg font-semibold text-gray-700 dark:text-gray-200 mb-3"
-          >
-            Şifre:
-          </label>
-          <input
-            type="password"
-            id="passwordInput"
-            placeholder="Kriptolama için şifre girin..."
-            class="w-full p-4 border-2 border-gray-200 dark:border-gray-600 rounded-xl focus:border-blue-500 dark:focus:border-blue-400 focus:outline-none transition-colors duration-200 bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400"
-          />
-        </div> -->
 
         <!-- Butonlar -->
         <div class="flex flex-col sm:flex-row gap-4 mb-6">
@@ -118,19 +107,42 @@
               Sonuç:
             </label>
             <button
-              id="copyBtn"
-              class="bg-blue-500 md:hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center gap-2 opacity-0 invisible"
+              id="clearOutputBtn"
+              class="bg-slate-300 md:hover:bg-slate-400 dark:bg-slate-600 dark:md:hover:bg-slate-700 text-gray-700 dark:text-white font-bold text-xs px-2 py-1 rounded-lg transition-colors duration-200 flex items-center"
             >
-              <span class="text-sm">📋</span>
-              Kopyala
+              Temizle
             </button>
           </div>
-          <textarea
-            id="outputText"
-            readonly
-            placeholder="Sonuç burada görünecek..."
-            class="w-full h-32 p-4 border-2 border-gray-200 dark:border-gray-600 rounded-xl resize-none bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400"
-          ></textarea>
+
+          <!-- Textarea Container - Relative positioning için -->
+          <div class="relative">
+            <!-- Kopyalama Butonu - Textarea'nın üzerinde sol alt köşede -->
+            <button
+              id="copyBtn"
+              class="absolute bottom-5 left-3 bg-blue-500 md:hover:bg-blue-600 text-white px-3 py-1.5 rounded-lg transition-all duration-200 flex items-center gap-1.5 text-sm opacity-0 invisible z-10 shadow-md"
+            >
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  fill-rule="evenodd"
+                  d="M7 9v6a4 4 0 0 0 4 4h4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1v2Z"
+                  clip-rule="evenodd"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M13 3.054V7H9.2a2 2 0 0 1 .281-.432l2.46-2.87A2 2 0 0 1 13 3.054ZM15 3v4a2 2 0 0 1-2 2H9v6a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-3Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              Kopyala
+            </button>
+
+            <textarea
+              id="outputText"
+              readonly
+              placeholder="Sonuç burada görünecek..."
+              class="w-full h-32 p-4 border-2 border-gray-200 dark:border-gray-600 rounded-xl resize-none bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400"
+            ></textarea>
+          </div>
         </div>
 
         <!-- Bilgi Mesajı -->

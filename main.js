@@ -34,9 +34,10 @@ function encode() {
     return;
   }
 
-  outputText.value = btoa(inputText.value);
+  // UTF-8 encoding için
+  outputText.value = btoa(unescape(encodeURIComponent(inputText.value)));
   inputText.value = "";
-  toggleCopyButton(); // Buton durumunu güncelle
+  toggleCopyButton();
 }
 
 function decode() {
@@ -46,9 +47,14 @@ function decode() {
     return;
   }
 
-  outputText.value = atob(inputText.value);
-  inputText.value = "";
-  toggleCopyButton(); // Buton durumunu güncelle
+  try {
+    // UTF-8 decoding için
+    outputText.value = decodeURIComponent(escape(atob(inputText.value)));
+    inputText.value = "";
+  } catch (e) {
+    outputText.value = "Geçersiz şifrelenmiş metin!";
+  }
+  toggleCopyButton();
 }
 
 // Kopyalama butonu görünürlüğünü kontrol et
